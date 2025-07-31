@@ -327,34 +327,39 @@ function setupVerseCompletion() {
             
             if (emptyBlank) {
                 emptyBlank.textContent = word;
-                emptyBlank.classList.add('filled');
+                emptyBlank.classList.add("filled");
                 emptyBlank.dataset.selectedWord = word;
-                this.classList.add('used');
+                this.classList.add("used");
                 
                 // Verificar si es correcto
                 if (word === emptyBlank.dataset.correctWord) {
-                    emptyBlank.classList.add('correct');
+                    emptyBlank.classList.add("correct");
                 } else {
-                    emptyBlank.classList.add('incorrect');
+                    emptyBlank.classList.add("incorrect");
                 }
                 
+                // Deshabilitar la opción de palabra seleccionada para evitar re-uso
+                this.disabled = true;
+                
                 checkLevelCompletion();
-            } });
+            } 
+        });
     });
     
     // Permitir hacer clic en blanks para limpiarlos
     wordBlanks.forEach(blank => {
-        blank.addEventListener('click', function() {
-            if (this.classList.contains('filled')) {
+        blank.addEventListener("click", function() {
+            if (this.classList.contains("filled")) {
                 const word = this.dataset.selectedWord;
-                this.textContent = '_____';
-                this.classList.remove('filled', 'correct', 'incorrect');
+                this.textContent = "_____";
+                this.classList.remove("filled", "correct", "incorrect");
                 delete this.dataset.selectedWord;
                 
                 // Rehabilitar la opción de palabra
                 const wordOption = document.querySelector(`[data-word="${word}"]`);
                 if (wordOption) {
-                    wordOption.classList.remove('used');
+                    wordOption.classList.remove("used");
+                    wordOption.disabled = false; // Habilitar el botón de la palabra
                 }
                 
                 checkLevelCompletion();
@@ -570,3 +575,4 @@ function calculateLevelPoints() {
     
     return points;
 }
+
