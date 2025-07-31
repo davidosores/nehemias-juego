@@ -323,7 +323,7 @@ function setupVerseCompletion() {
             if (this.classList.contains('used')) return;
             
             const word = this.dataset.word;
-            const emptyBlank = document.querySelector('.word-blank:not(.filled)');
+            const emptyBlank = document.querySelector(".word-blank:not(.filled)");
             
             if (emptyBlank) {
                 emptyBlank.textContent = word;
@@ -339,8 +339,7 @@ function setupVerseCompletion() {
                 }
                 
                 checkLevelCompletion();
-            }
-        });
+            } });
     });
     
     // Permitir hacer clic en blanks para limpiarlos
@@ -571,4 +570,3 @@ function calculateLevelPoints() {
     
     return points;
 }
-
