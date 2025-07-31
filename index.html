@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nehemías - Constructor de Muros</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="screen active">
+            <div class="title-container">
+                <h1 class="game-title">Nehemías</h1>
+                <h2 class="game-subtitle">Constructor de Muros</h2>
+                <p class="game-description">Un juego educativo basado en el libro de Nehemías</p>
+            </div>
+            
+            <div class="character-selection">
+                <h3>Elige tu personaje:</h3>
+                <div class="character-options">
+                    <div class="character-option" data-character="masculino">
+                        <img src="assets/personajes/nehemias_copero_masculino.png" alt="Personaje Masculino">
+                        <p>Nehemías</p>
+                    </div>
+                    <div class="character-option" data-character="femenino">
+                        <img src="assets/personajes/nehemias_copera_femenina.png" alt="Personaje Femenino">
+                        <p>Nehemía</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="start-game-btn" class="btn-primary" disabled>Comenzar Aventura</button>
+        </div>
+
+        <!-- Pantalla de juego -->
+        <div id="game-screen" class="screen">
+            <div id="game-ui">
+                <div class="ui-top">
+                    <div class="level-info">
+                        <span id="current-level">Nivel 1</span>
+                        <span id="level-title">El Dolor de Nehemías</span>
+                    </div>
+                    <div class="player-stats">
+                        <div class="stat">
+                            <span class="stat-label">Puntos:</span>
+                            <span id="player-points">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Tiempo:</span>
+                            <span id="game-timer">00:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ui-bottom">
+                    <div class="abilities">
+                        <button id="prayer-btn" class="ability-btn" data-ability="oracion" disabled>
+                            <span class="ability-icon">🙏</span>
+                            <span class="ability-name">Oración</span>
+                            <span class="ability-uses">(0/3)</span>
+                        </button>
+                        <button id="diplomacy-btn" class="ability-btn" data-ability="diplomacia" disabled>
+                            <span class="ability-icon">🤝</span>
+                            <span class="ability-name">Diplomacia</span>
+                        </button>
+                        <button id="analysis-btn" class="ability-btn" data-ability="analisis" disabled>
+                            <span class="ability-icon">🔍</span>
+                            <span class="ability-name">Análisis</span>
+                        </button>
+                        <button id="leadership-btn" class="ability-btn" data-ability="liderazgo" disabled>
+                            <span class="ability-icon">👑</span>
+                            <span class="ability-name">Liderazgo</span>
+                        </button>
+                        <button id="combat-btn" class="ability-btn" data-ability="combate" disabled>
+                            <span class="ability-icon">⚔️</span>
+                            <span class="ability-name">Combate</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-content">
+                <div id="character-display">
+                    <img id="character-sprite" src="" alt="Personaje">
+                </div>
+                
+                <div id="level-content">
+                    <!-- El contenido del nivel se cargará aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de resultados -->
+        <div id="results-screen" class="screen">
+            <div class="results-container">
+                <h2>¡Nivel Completado!</h2>
+                <div class="results-stats">
+                    <div class="result-item">
+                        <span class="result-label">Puntos Obtenidos:</span>
+                        <span id="level-points">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Tiempo:</span>
+                        <span id="level-time">00:00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Bonificación:</span>
+                        <span id="level-bonus">0</span>
+                    </div>
+                </div>
+                <div class="results-actions">
+                    <button id="next-level-btn" class="btn-primary">Siguiente Nivel</button>
+                    <button id="replay-level-btn" class="btn-secondary">Repetir Nivel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
+
